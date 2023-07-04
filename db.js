@@ -1,7 +1,10 @@
 import {MongoClient} from 'mongodb'
 import Obj from 'mongodb'
+import dotenv from 'dotenv'
 
-const MongoUrl ="mongodb+srv://karthi:karthi25@cluster0.thtkzhz.mongodb.net/?retryWrites=true&w=majority"
+dotenv.config()
+
+const MongoUrl = process.env.MONGO_URL
 async function createConnection(){
    const client = new MongoClient(MongoUrl);
    await client.connect()

@@ -3,40 +3,40 @@ import { client } from "../db.js";
 
 
 
-export function getAllStudents(req){
+export function getAllInventory(req){
     return client
     .db("guvi")
-    .collection("students")
+    .collection("inventory")
     .find(req.query)
     .toArray();
   }
 
 
-  export function getStudentsById(id){
+  export function getInventoryById(id){
     return client
     .db("guvi")
-    .collection("students")
+    .collection("inventory")
     .findOne({_id: new ObjectId(id)});
     
   }
 
-  export function addStudents(data){
+  export function addInventory(data){
     return client
     .db("guvi")
-    .collection("students")
+    .collection("inventory")
     .insertOne(data);
   }
 
-  export function updateStudent(id,updatedData){
+  export function updateInventory(id,updatedData){
     return client
     .db("guvi")
-    .collection("students")
+    .collection("inventory")
     .findOneAndUpdate({_id: new ObjectId(id)},{$set:updatedData});
   }
 
-  export function deleteStudent(id){
+  export function deleteInventory(id){
     return client
     .db("guvi")
-    .collection("students")
+    .collection("inventory")
     .deleteOne({_id: new ObjectId(id)});
   }
